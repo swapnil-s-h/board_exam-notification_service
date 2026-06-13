@@ -1,6 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
 import { EmailLogService } from 'src/email-log/email-log.service';
+import { Status } from 'src/email-log/enums/status.enum';
 import { EmailService } from 'src/email/email.service';
 import { UserClientService } from 'src/user-client/user-client.service';
 
@@ -22,14 +23,14 @@ export class NotificationController {
         studentId: payload.studentId,
         resultId: payload.resultId,
         email: user.email,
-        status: 'SUCCESS',
+        status: Status.success,
       });
     } catch (error) {
       await this.emailLogService.create({
         studentId: payload.studentId,
         resultId: payload.resultId,
         email: user.email,
-        status: 'FAILED',
+        status: Status.failed,
         errorMessage: error instanceof Error ? error.message : 'Unknown error',
       });
     }

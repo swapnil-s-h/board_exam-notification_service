@@ -13,4 +13,8 @@ export class EmailLogService {
   async create(data: Partial<EmailLog>) {
     return this.emailLogModel.create(data);
   }
+
+  async findByStudentId(id: number) {
+    return this.emailLogModel.find({ studentId: id }).sort({ createdAt: -1 });
+  }
 }
