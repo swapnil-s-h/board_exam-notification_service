@@ -29,6 +29,8 @@ import { JwtStrategy } from './auth/strategies/jwt.strategy';
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRY: Joi.string().required(),
         REFRESH_TOKEN_EXPIRY: Joi.string().required(),
+        RABBITMQ_URL: Joi.string().required(),
+        RESULT_QUEUE: Joi.string().required(),
       }),
     }),
     NotificationModule,
