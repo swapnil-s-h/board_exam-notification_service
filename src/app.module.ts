@@ -27,8 +27,6 @@ import { JwtStrategy } from './auth/strategies/jwt.strategy';
         MONGODB_URL: Joi.string().required(),
         PORT: Joi.number().default(3003),
         JWT_SECRET: Joi.string().required(),
-        JWT_EXPIRY: Joi.string().required(),
-        REFRESH_TOKEN_EXPIRY: Joi.string().required(),
         RABBITMQ_URL: Joi.string().required(),
         RESULT_QUEUE: Joi.string().required(),
       }),
